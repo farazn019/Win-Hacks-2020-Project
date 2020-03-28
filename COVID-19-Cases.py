@@ -17,18 +17,19 @@ global_case_information = soup.find_all("div", {"class":"maincounter-number"})
 I must declare another variable 'counter' and set it equal to zero, with the value
 of counter being updated by 1 each time.'''
 
-current_cases = []
+
+total_cases = []
 counter = 0;
 for cases in global_case_information:
     if(counter == 13):
         break
     else:
-        current_cases.append(cases.text)
+        total_cases.append(cases.text)
         print(cases.text)
         counter += 1    
 
 num = 0;
-for case in current_cases:
+for case in total_cases:
     print(num, '->', case)
     num += 1
 
