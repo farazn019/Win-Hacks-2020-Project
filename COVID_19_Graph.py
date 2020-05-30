@@ -36,7 +36,7 @@ def COVID_graph():
 
     #Informs the user that the integer values are in millions.
     plt.ylabel("Deaths In Millions") 
-
+    plt.title("COVID-19 Cases WorldWide")
 
     plt.bar(x, y) #Plots the bar graph
     for index, value in enumerate(y):
