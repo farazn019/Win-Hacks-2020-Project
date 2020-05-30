@@ -1,23 +1,44 @@
+#All the necessary libraries are imported.
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import xlrd
 
 
-read_data = pd.read_excel("covid_19_data.xlsx")
-'''
-x_values = ["Total Deaths", "Total Recovered"]
+#Here we deal with the x-axis of the bar graph.
+x_values = ["Total Deaths", "Total Recovered", "Total Infected"]
 x = np.arange(len(x_values))
 list(x)
 plt.xticks(x, x_values)
 
-y = [read_data["Total Deaths"], read_data["Total Recovered"]]
-
-plt.bar(x, y)
-'''
-y = read_data["Total Deaths"], read_data["Total Recovered"]
 
 
-print(y)
+#Here we deal with the y-axis of the graph.
 
-#plt.bar([0, 1], y)
-#plt.show()
+book = xlrd.open_workbook("covid_19_data.xlsx")
+sheet = book.sheet_by_index(0)
+
+
+y = [] #This list will store all the integer values for: Total Deaths, Total Recovered, and Total Infected.
+
+column_cell = 1
+while (column_cell <= 3):
+    current_cell = str(sheet.cell(1, column_cell))
+    current_value=""
+    for number in current_cell:
+        if number in "0123456789": 
+            current_value += number
+    current_value = int (current_value) #The string is typecasted to an integer, so it can be stored in the list (the list holds values for the y-axis).
+    y.append(current_value)
+    column_cell += 1
+
+#Informs the user that the integer values are in millions.
+plt.ylabel("Deaths In Millions") 
+
+
+plt.bar(x, y) #Plots the bar graph
+for index, value in enumerate(y):
+    plt.text(x[index] - 0.25, value + 0.1, str(v)) #Shows the value of each bar graph on top of the bars.
+
+
+plt.show() #Shows the bar graph

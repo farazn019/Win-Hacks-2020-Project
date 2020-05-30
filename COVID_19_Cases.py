@@ -1,3 +1,4 @@
+#All the necessary libraries are imported.
 from bs4 import BeautifulSoup
 import requests
 import numpy as np
@@ -28,12 +29,15 @@ def global_data():
             total_cases.append(cases.text)
             counter += 1
 
+    
+
     data = pd.DataFrame({"Total Deaths":[total_cases[1]] , "Total Recovered":[total_cases[2]], "Total Infected":[total_cases[0]]})
 
     writer = pd.ExcelWriter("covid_19_data.xlsx", engine="xlsxwriter")
     data.to_excel(writer)
 
     writer.save()
+
     
 global_data()
     
