@@ -11,6 +11,8 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 
 #Another page is imported.
 from facts_page import facts
+from COVID_19_Cases import global_data
+from COVID_19_Graph import COVID_graph
 
 #This is the class to create the facts window.
 class FactsWindow:
@@ -32,6 +34,24 @@ class FactsWindow:
         self.new_window.title("Important Facts About Covid-19")
         facts(self.new_window)
 
+class GraphWindow:
+    def __init__(self, master, text, side):
+        self.master = master
+        self.master.geometry("700x700")
+        self.frame = tk.Frame(self.master)
+        self.text = text
+        self.button = tk.Button(self.master, text = self.text, width = 20, command = self.graph_window)
+        self.side = side
+        self.button.pack(side=self.side)
+        self.frame.pack()
+
+
+
+    def graph_window(self):
+        global_data()
+        COVID_graph()
+        
+        
 
 #This function graphs to curves, with the aim of showing the impact of flattening the curve.
 def graphCanvas(main_page): 
@@ -57,8 +77,8 @@ def graphCanvas(main_page):
     horizontal_line.plot(x3, y3, linestyle= '--', label="Hospital Carrying Capacity")
 
     #Some important properties and visuals for the graph itself are defined.
-    a.set_xlabel("Total Number Of People Infected")
-    a.set_ylabel("Time Since First Infection")
+    a.set_xlabel("Time Since First Infection")
+    a.set_ylabel("Total Number Of People Infected")
     a.set_xlim(0, np.pi)
     a.set_ylim(0, 1.5)
     a.set_yticklabels([])
@@ -81,7 +101,7 @@ def graphCanvas(main_page):
 #This is the main function.
 def main():
 
-    #This is the root (home page), and all the modifications made to the root.
+    #This is the root (home page), and all the modifications made to the root page.
     root = tk.Tk()
     root.title("COVID 19: HOME")
 
@@ -92,9 +112,8 @@ def main():
     root.configure(background='#FFFF33')
     
     graphCanvas(root)
-    #graph_window = Window(root, "Graph Visualization", "left")
+    graph_window = GraphWindow(root, "Graph Visualization", "left")
     facts_window = FactsWindow(root, "Important Facts", "right")
-    #prevention_window = Window(root, "Prevention Techniques", "bottom")
 
 
     root.mainloop()
