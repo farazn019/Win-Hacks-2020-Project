@@ -28,17 +28,17 @@ the steps to installing all the programs, <i>if they are not installed on your m
 would want to check if these libraries and modules are installed, then typing these commands will not waste
 any additional space on your machine, or cause any problems:
 
-<li>**python3 -m pip install matplotlib** OR **pip install matplotlib**</li>
-<li>**python3 -m pip install numpy** OR **pip install numpy**</li>
-<li>**python3 -m pip install tk** OR **pip install tk**</li>
-<li>**python3 -m pip install Pillow** OR **pip install Pillow**</li>
-<li>**python3 -m pip install beautifulsoup4** OR **pip install beautifulsoup4**</li>
-<li>**python3 -m pip install xlrd** OR **pip install xlrd**</li>
-<li>**python3 -m pip install requests** OR **pip install requests**</li>
+<li><strong>python3 -m pip install matplotlib</strong> OR <strong>pip install matplotlib</strong></li>
+<li><strong>python3 -m pip install numpy</strong> OR <strong>pip install numpy</strong></li>
+<li><strong>python3 -m pip install tk</strong> OR <strong>pip install tk</strong></li>
+<li><strong>python3 -m pip install Pillow</strong> OR <strong>pip install Pillow</strong></li>
+<li><strong>python3 -m pip install beautifulsoup4</strong> OR <strong>pip install beautifulsoup4</strong></li>
+<li><strong>python3 -m pip install xlrd</strong> OR <strong>pip install xlrd</strong></li>
+<li><strong>python3 -m pip install requests</strong> OR <strong>pip install requests</strong></li>
 
 
 <h2>Executing The Program</h2>
 In order to execute the program, you can go into the terminal or command prompt, and type in the 
-following command: <strong>python3 mainGUI.py</strong> OR <strong>python mainGUI.py</strong>.
+following command: <strong>python3 mainGUI.py</strong><br/>OR<br/><strong>python mainGUI.py</strong>.
 
 
