@@ -39,6 +39,6 @@ any additional space on your machine, or cause any problems:
 
 <h2>Executing The Program</h2>
 In order to execute the program, you can go into the terminal or command prompt, and type in the 
-following command: **python3 mainGUI.py** OR **python mainGUI.py**.
+following command: <strong>python3 mainGUI.py</strong> OR <strong>python mainGUI.py</strong>.
 
 
